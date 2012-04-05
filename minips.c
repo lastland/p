@@ -65,7 +65,7 @@ int main(int argc, char** argv)
 		for (i = 0; i < 11; i++)
 		    fscanf(file, "%lu", &time);
 		fscanf(file, "%lu", &stime);
-		time = (int)((double)(time + stime) / CLOCKS_PER_SEC);
+		time = (int)((double)(time + stime) / sysconf(_SC_CLK_TCK));
 		sprintf(time_s, "%02lu:%02lu:%02lu", 
 		    (time / 3600) % 3600, (time / 60) % 60, time % 60);
 
